@@ -6,28 +6,29 @@ const docSchema = new mongoose.Schema({
     },
     LastStatus: {
         type: 'String',
-        require: true,
+        required: true,
     },
     WriteUserName: {
         type: 'String',
-        require: true,
+        required: true,
     },
     BodyDesc: {
         type: 'String',
-        require: true,
+        required: true,
     },
     Thumbnail: {
         type: 'String',
-        require: true,
+        required: true,
     },
     CntFiles: {
-      type: 'Number',
-      default: 0,        
+        type: 'Number',
+        default: 0,
     },
     RegDate: {
         type: 'Date',
-        require: false,
+        required: false,
         default: Date.now()
     }
 })
+
 module.exports = mongoose.model("Doc", docSchema);

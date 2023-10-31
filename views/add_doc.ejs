@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
+<%- include('layout/header') %>
+
+<link href="https://releases.transloadit.com/uppy/v3.15.0/uppy.min.css" rel="stylesheet" />
+
 <div class="container">
     <h3 class="mt-4">새 문서 등록</h3>
     <form class="mx-auto mt-4" action="/add" method="post" enctype="multipart/form-data">
         <div class="form-group mb-3">
-            <label>제목</label>
-            <input type="text" class="form-control" name="Subject" required />
+            <label for="Subject">제목</label>
+            <input type="text" class="form-control" id="Subject" name="Subject" aria-describedby="subjectHelp" placeholder="제목을 입력하세요." required />
+            <small id="subjectHelp" class="form-text text-muted">최대 100자 이내로 특수 문자를 입력하실 수 없습니다.</small>
         </div>
         <div class="form-group mb-3">
-            <label>최종 상태</label>
-            <select name="LastStatus" class="form-control">
+            <label for="LastStatus">최종 상태</label>
+            <select id="LastStatus" name="LastStatus" class="form-control">
                 <option selected>문서상태를 선택하세요.</option>
                 <option>상신</option>
                 <option>승인</option>
@@ -23,16 +21,21 @@
             </select>
         </div>
         <div class="form-group mb-3">
-            <label>작성자명</label>
-            <input type="text" class="form-control" name="WriteUserName" required />
+            <label for="WriteUserName">작성자명</label>
+            <input type="text" class="form-control" id="WriteUserName" name="WriteUserName" placeholder="작성자명을 입력하세요." required />
         </div>
         <div class="form-group mb-3">
-            <label>문서내용</label>
-            <textarea class="form-control" name="BodyDesc" rows="3"></textarea>
+            <label for="BodyDesc">문서내용</label>
+            <textarea class="form-control" id="BodyDesc" name="BodyDesc" rows="3"></textarea>
         </div>
         <div class="form-group mb-3">
-            <label class="form-label">썸네일 이미지</label>
-            <input class="form-control form-control-lg" type="file" name="Thumbnail" required />
+            <label for="Thumbnail" class="form-label">썸네일 이미지</label>
+            <input class="form-control form-control-lg" type="file" id="Thumbnail" name="Thumbnail" required />
+        </div>
+        <div class="form-group mb-3">
+            <label for="AttachFiles">첨부파일</label>
+            <div id="AttachFiles" style="width:100%;height:560px;"></div>            
+            <textarea class="form-control" id="AttachJsons" name="AttachJsons" rows="3"></textarea>
         </div>
         <div class="form-group mb-3">
             <button type="submit" class="btn btn-primary">저장</button>
@@ -40,5 +43,7 @@
         </div>        
     </form>
 </div>
-</body>
-</html>
+
+<script src="/js/uppy_cdn.js" type="module"></script>
+
+<%- include('layout/footer') %>
