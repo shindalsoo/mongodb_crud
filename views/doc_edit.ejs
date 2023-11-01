@@ -1,8 +1,8 @@
-<%- include('layout/header') %>
+<%- include('layout/doc_header') %>
 
 <div class="container">
     <h3 class="mt-4">문서 수정 ("<%=doc.Subject%>")</h3>
-    <form class="mx-auto mt-4" action="/update/<%=doc._id%>" method="post" enctype="multipart/form-data">
+    <form class="mx-auto mt-4" action="/doc/update/<%=doc._id%>" method="post" enctype="multipart/form-data">
         <div class="form-group mb-3">
             <label for="Subject">제목</label>
             <input type="text" class="form-control" id="Subject" name="Subject" aria-describedby="subjectHelp" value="<%= doc.Subject%>" required />
@@ -33,14 +33,10 @@
             <input type="hidden" name="old_thumbnail" value="<%= doc.Thumbnail %>" />
         </div>
         <div class="form-group mb-3">
-            <label for="AttachFiles">첨부파일 (Uppy Area)</label>
-            <textarea class="form-control" id="AttachFiles" rows="3"></textarea>
-        </div>
-        <div class="form-group mb-3">
             <button type="submit" class="btn btn-primary">저장</button>
             <a class="btn btn-secondary" href="/">취소</a>
         </div>
     </form>
 </div>
 
-<%- include('layout/footer') %>
+<%- include('layout/doc_footer') %>

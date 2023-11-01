@@ -1,10 +1,10 @@
-<%- include('layout/header') %>
+<%- include('layout/doc_header') %>
 
 <link href="https://releases.transloadit.com/uppy/v3.15.0/uppy.min.css" rel="stylesheet" />
 
 <div class="container">
     <h3 class="mt-4">새 문서 등록</h3>
-    <form class="mx-auto mt-4" action="/add" method="post" enctype="multipart/form-data">
+    <form class="mx-auto mt-4" action="/doc/add" method="post" enctype="multipart/form-data">
         <div class="form-group mb-3">
             <label for="Subject">제목</label>
             <input type="text" class="form-control" id="Subject" name="Subject" aria-describedby="subjectHelp" placeholder="제목을 입력하세요." required />
@@ -33,17 +33,10 @@
             <input class="form-control form-control-lg" type="file" id="Thumbnail" name="Thumbnail" required />
         </div>
         <div class="form-group mb-3">
-            <label for="AttachFiles">첨부파일</label>
-            <div id="AttachFiles" style="width:100%;height:560px;"></div>            
-            <textarea class="form-control" id="AttachJsons" name="AttachJsons" rows="3"></textarea>
-        </div>
-        <div class="form-group mb-3">
             <button type="submit" class="btn btn-primary">저장</button>
             <a class="btn btn-secondary" href="/">취소</a>
         </div>        
     </form>
 </div>
 
-<script src="/js/uppy_cdn.js" type="module"></script>
-
-<%- include('layout/footer') %>
+<%- include('layout/doc_footer') %>

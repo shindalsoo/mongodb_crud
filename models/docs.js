@@ -20,10 +20,6 @@ const docSchema = new mongoose.Schema({
         type: 'String',
         required: true,
     },
-    CntFiles: {
-        type: 'Number',
-        default: 0,
-    },
     RegDate: {
         type: 'Date',
         required: false,

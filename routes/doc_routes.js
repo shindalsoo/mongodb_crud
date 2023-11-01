@@ -20,7 +20,7 @@ var upload = multer({
 
 router.get("/", (req,res)=>{
     Doc.find({}).then((docs) => {
-        res.render("index", {
+        res.render("doc_list", {
             title: "ZioDocs",
             moment: moment,
             docs:docs,
@@ -29,8 +29,9 @@ router.get("/", (req,res)=>{
         res.json({message:err.message});
     });
 });
+
 router.get("/add", (req,res)=>{
-    res.render("add_doc",{title:"Add Docs"});
+    res.render("doc_add",{title:"Add Docs"});
 });
 router.get('/view/:id', (req,res)=>{
     let id = req.params.id;
@@ -38,7 +39,7 @@ router.get('/view/:id', (req,res)=>{
         if(doc==null){
             res.redirect('/');
         }else{
-            res.render('view_doc',{
+            res.render('doc_view',{
                 title:'View Doc',
                 doc:doc,
             })
@@ -53,7 +54,7 @@ router.get('/edit/:id', (req,res)=>{
         if(doc==null){
             res.redirect('/');
         }else{
-            res.render('edit_doc',{
+            res.render('doc_edit',{
                 title:'Edit Doc',
                 doc:doc,
             })
