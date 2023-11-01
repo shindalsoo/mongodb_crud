@@ -71,6 +71,7 @@ router.post('/add', upload, (req,res)=>{
         WriteUserName: req.body.WriteUserName,
         BodyDesc: req.body.BodyDesc,
         Thumbnail: req.file.filename,
+        RegDate: Date.now(),
     });
     doc.save().then(()=>{
         req.session.message = {

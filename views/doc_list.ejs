@@ -29,7 +29,7 @@
                             <td class="font-weight-bold"><a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/doc/view/<%=row._id%>"><%= row.Subject %></a></td>
                             <td><%= row.LastStatus %></td>
                             <td><%= row.WriteUserName %></td>
-                            <td class="text-secondary"><%= moment(row.RegDate).add(9,'hours').format('MM-DD HH:mm') %></td>
+                            <td class="text-secondary"><%= moment(row.RegDate).format('MM-DD HH:mm:ss') %></td>
                             <td>
                                 <a href="/doc/edit/<%= row.id %>" class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
                                 <a href="/doc/delete/<%= row.id %>" class="text-danger Trash"><i class="fas fa-trash fa-lg mx-1"></i></a>
